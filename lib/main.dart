@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mastering_level_1/src/home.dart';
 
 void main() => runApp(MyFirstApp());
 
@@ -9,7 +10,7 @@ class MyFirstApp extends StatelessWidget{
 
     return MaterialApp(
       title: 'First App',
-      home: Text('sssss'),
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
 
