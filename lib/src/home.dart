@@ -32,36 +32,61 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: ListView(
         children: <Widget>[
-          Text(
-          'Welcome To Flutter',
-          style: TextStyle(
-            color: Colors.red,
-            // fontSize: 40,
-            fontWeight: FontWeight.w700,
-            // backgroundColor: Colors.black,
-            letterSpacing: 5.5,
-          ),
-        ),
-        Text(
-          'Welcome To Flutter',
-          style: TextStyle(
-            color: Colors.red,
-            // fontSize: 40,
-            fontWeight: FontWeight.w700,
-            // backgroundColor: Colors.black,
-            letterSpacing: 5.5,
-          ),
-        ),
-        Text(
-          'Welcome To Flutter',
-          style: TextStyle(
-            color: Colors.red,
-            // fontSize: 40,
-            fontWeight: FontWeight.w700,
-            // backgroundColor: Colors.black,
-            letterSpacing: 5.5,
-          ),
-        )
+          Container(
+            width: 300,
+            height: 150,
+            child: Card(
+              elevation: 3,
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.shopping_cart),
+                    title: Text('Order No : 1533589'),
+                    subtitle: Row(
+                      children: [
+                        Icon(Icons.location_on),
+                        Text('Simple Location ......')
+                      ],
+                    ),
+                    trailing: Text('50 mi'),
+                    onTap: (){
+                      print('welcome first listtile');
+                    },
+                  ),
+                  ButtonBar(
+                    children: [
+                      FlatButton(
+                        child: Text('Accept'),
+                        color: Colors.green,
+                        textColor: Colors.black,
+                        onLongPress: (){
+                          print('welcome long press');
+                        },
+                        onPressed: (){
+                          print('accept order');
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.block),
+                        color : Colors.red,
+                        onPressed: (){
+                          print('reject Order');
+                        },
+                      ),
+                      RaisedButton(
+                        child: Icon(Icons.phone),
+                        //color: Colors.white,
+                        //elevation: 0,
+                        onPressed: (){
+                          print('call customer');
+                        },
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
