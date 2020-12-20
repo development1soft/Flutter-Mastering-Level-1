@@ -7,6 +7,7 @@ class HomeScreen extends StatefulWidget{
 
 class _HomeScreenState extends State<HomeScreen> {
 
+
   // TextEditingController _nameController = new TextEditingController();
 
   // final _formKey = GlobalKey<FormState>();
@@ -17,6 +18,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
   var _selected2 = 0;
 
+  var switch_val = false;
+
+  String name = "Eyad";
+
+  String init_btn;
+
+  @override
+  void initState() {
+    
+    super.initState();
+
+    // setState(() {
+
+    //   name = 'ahamd';
+
+    // });
+
+    print('welcome home screen');
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,313 +63,94 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: ListView(
+      body: Column(
         children: <Widget>[
-
-          // Checkbox(
-          //   activeColor: Colors.red,
-          //   checkColor: Colors.black,            
-          //   value: _checked,
-          //   onChanged: (value){
-          //     setState(() {
-          //       _checked = value;
-          //     });
-          //   },
-          // )
-          // CheckboxListTile(
-          //   title: Text('agree all terms and conditions'),
-          //   subtitle: Text('welcome to our world'),
-          //   controlAffinity: ListTileControlAffinity.leading,
-          //   activeColor: Colors.red,
-          //   checkColor: Colors.black,            
-          //   value: _checked,
-          //   onChanged: (value){
-          //     setState(() {
-          //       _checked = value;
-          //     });
-          //   },
-          // )
-
-          RadioListTile(
-            activeColor: Colors.red,
-            title: Text('male'),
-            value: 0,
-            groupValue: _selected,
-            onChanged: (value){
-              setState(() {
-                _selected = value;
-              });
-            },
-          ),
-
-          RadioListTile(
-            activeColor: Colors.black,
-            controlAffinity: ListTileControlAffinity.leading,
-            title: Text('fmale'),
-            value: 1,
-            groupValue: _selected,
-            onChanged: (value){
-              setState(() {
-                _selected = value;
-              });
+          RaisedButton(
+            child: Text('click here'),
+            onPressed: (){
+              return showDialog<void>(
+                context: context,
+                builder: (BuildContext context){
+                  return AlertDialog(
+                    title: Text('Please Tell Us'),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text('exit'),
+                        onPressed: (){
+                          Navigator.of(context).pop();
+                        },
+                      )
+                    ],
+                    content: Container(
+                      width: 300,
+                      height: 300,
+                      child: Text('Are You Sure ? '),
+                    ),
+                  );
+                }
+              );
             },
           )
-
-          // Radio(
-          //   value: 0,
-          //   groupValue: _selected,
-          //   onChanged: (value){
-          //     setState(() {
-          //       _selected = value;
-          //     });
-          //   },
-          // ),
-
-          // Radio(
-          //   value: 1,
-          //   groupValue: _selected,
-          //   onChanged: (value){
-          //     setState(() {
-          //       _selected = value;
-          //     });
-          //   },
-          // )
-
-          // Text('the username is : '+ _nameController.text,style:TextStyle(fontSize: 20)),
-          // Form(
-          //   key: _formKey,
-          //   child: Column(
-          //     children: <Widget>[
-          //       TextFormField(
-          //         controller: _nameController,
-          //         validator: (value){
-          //           if(value.isEmpty)
-          //           {
-          //             return 'please enter your name';
-          //           }
-          //         },
-          //       ),
-          //     ],
-          //   ),
-          // ),
-
-          // RaisedButton(
-          //   child: Text('submit'),
-          //   onPressed: (){
-          //     if(_formKey.currentState.validate())
-          //     {
-          //       print('yes');
-          //     }
-          //   },
-          // ),
-          
-          // TextField(
-          //   autocorrect: true,
-          //   autofocus: true,
-          //   cursorColor: Colors.red,
-          //   keyboardType: TextInputType.text,
-          //   obscureText: false,
-          //   // teeyadxtAlign: TextAlign.right,
-          //   // maxLength: 3,
-          //   // maxLines: 5,
-          //   textInputAction: TextInputAction.send,
-          //   controller: _nameController,
-          //   onEditingComplete: (){
-          //     print('done');
-          //   },
-          //   onSubmitted: (value){
-          //     setState(() {
-          //       _nameController.text = value;
-          //     });
-          //     print('done and value is : ' + value.toString());
-          //   },
-          // ),
-          //Image.network('https://i.stack.imgur.com/ApMnP.png'),
-          // Image.asset('assets/images/logo.jpg',width: 200,),
-          // Padding(
-          //   padding:EdgeInsets.only(top:20),
+          // Text('${name}')
+          // GestureDetector(
           //   child: Container(
-          //     width: 300,
-          //     height: 150,
-          //     child: Card(
-          //       elevation: 3,
-          //       child: Column(
-          //         children: [
-          //           ListTile(
-          //             leading: Icon(Icons.shopping_cart),
-          //             title: Text('Order No : 1533589'),
-          //             subtitle: Row(
-          //               children: [
-          //                 Icon(Icons.location_on),
-          //                 Text('Simple Location ......')
-          //               ],
-          //             ),
-          //             trailing: Text('50 mi'),
-          //             onTap: (){
-          //               print('welcome first listtile');
-          //             },
-          //           ),
-          //           ButtonBar(
-          //             children: [
-          //               FlatButton(
-          //                 child: Text('Accept'),
-          //                 color: Colors.green,
-          //                 textColor: Colors.black,
-          //                 onLongPress: (){
-          //                   print('welcome long press');
-          //                 },
-          //                 onPressed: (){
-          //                   print('accept order');
-          //                 },
-          //               ),
-          //               IconButton(
-          //                 icon: Icon(Icons.block),
-          //                 color : Colors.red,
-          //                 onPressed: (){
-          //                   print('reject Order');
-          //                 },
-          //               ),
-          //               RaisedButton(
-          //                 child: Icon(Icons.phone),
-          //                 //color: Colors.white,
-          //                 //elevation: 0,
-          //                 onPressed: (){
-          //                   print('call customer');
-          //                 },
-          //               )
-          //             ],
-          //           )
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // )
-          // Container(
-          //     width: 300,
-          //     height: 150,
-          //     // margin: EdgeInsets.only(bottom: 10),
+          //     width: 200,
+          //     height: 300,
           //     color: Colors.red,
-          //     child: Card(
-          //       elevation: 3,
-          //       child: Column(
-          //         children: [
-          //           ListTile(
-          //             leading: Icon(Icons.shopping_cart),
-          //             title: Text('Order No : 1533589'),
-          //             subtitle: Row(
-          //               children: [
-          //                 Icon(Icons.location_on),
-          //                 Text('Simple Location ......')
-          //               ],
-          //             ),
-          //             trailing: Text('50 mi'),
-          //             onTap: (){
-          //               print('welcome first listtile');
-          //             },
-          //           ),
-          //           ButtonBar(
-          //             children: [
-          //               FlatButton(
-          //                 child: Text('Accept'),
-          //                 color: Colors.green,
-          //                 textColor: Colors.black,
-          //                 onLongPress: (){
-          //                   print('welcome long press');
-          //                 },
-          //                 onPressed: (){
-          //                   print('accept order');
-          //                 },
-          //               ),
-          //               IconButton(
-          //                 icon: Icon(Icons.block),
-          //                 color : Colors.red,
-          //                 onPressed: (){
-          //                   print('reject Order');
-          //                 },
-          //               ),
-          //               RaisedButton(
-          //                 child: Icon(Icons.phone),
-          //                 //color: Colors.white,
-          //                 //elevation: 0,
-          //                 onPressed: (){
-          //                   print('call customer');
-          //                 },
-          //               )
-          //             ],
-          //           )
-          //         ],
-          //       ),
-          //     ),
+          //     child: Text('welcome'),
           //   ),
-            // SizedBox(
-            //   height: 10,
-            // ),
-            // Divider(
-            //   color: Colors.red,
-            //   thickness: 3,
-            //   height: 30,
-            // ),
-            // Container(
-            //   width: 300,
-            //   height: 150,
-            //   color: Colors.black,
-            //   child: Card(
-            //     elevation: 3,
-            //     child: Column(
-            //       children: [
-            //         ListTile(
-            //           leading: Icon(Icons.shopping_cart),
-            //           title: Text('Order No : 1533589'),
-            //           subtitle: Row(
-            //             children: [
-            //               Icon(Icons.location_on),
-            //               Text('Simple Location ......')
-            //             ],
-            //           ),
-            //           trailing: Text('50 mi'),
-            //           onTap: (){
-            //             print('welcome first listtile');
-            //           },
-            //         ),
-            //         ButtonBar(
-            //           children: [
-            //             FlatButton(
-            //               child: Text('Accept'),
-            //               color: Colors.green,
-            //               textColor: Colors.black,
-            //               onLongPress: (){
-            //                 print('welcome long press');
-            //               },
-            //               onPressed: (){
-            //                 print('accept order');
-            //               },
-            //             ),
-            //             SizedBox(
-            //               width: 50,
-            //             ),
-            //             IconButton(
-            //               icon: Icon(Icons.block),
-            //               color : Colors.red,
-            //               onPressed: (){
-            //                 print('reject Order');
-            //               },
-            //             ),
-            //             RaisedButton(
-            //               child: Icon(Icons.phone),
-            //               //color: Colors.white,
-            //               //elevation: 0,
-            //               onPressed: (){
-            //                 print('call customer');
-            //               },
-            //             )
-            //           ],
-            //         )
-            //       ],
-            //     ),
-            //   ),
-            // ),
+          //   onTap: (){
+          //     print('clicked');
+          //   },
+          // )
+          // DropdownButton(
+          //   hint: Text('Select Your Country'),
+          //   value: init_btn,
+          //   onChanged: (String val){
+          //     setState(() {
+          //       init_btn = val;
+          //     });
+          //   },
+          //   items: <String>['egypt','jordan','kuwait'].map<DropdownMenuItem<String>>((String country){
+          //     return DropdownMenuItem<String>(
+          //       child: Text(country),
+          //       value: country,
+          //     );
+          //   }).toList(),
+          // )
+
+          // Switch(
+          //   value: switch_val,
+          //   onChanged: (value){
+          //     setState(() {
+          //       switch_val = value;
+          //     });
+          //   },
+          //   activeColor: Colors.red,
+          //   activeTrackColor: Colors.black,
+          //   inactiveTrackColor: Colors.blue,
+          //   inactiveThumbColor: Colors.green,
+
+          // ),
+          // SwitchListTile(
+          //   title: Text('Allow Notifications'),
+          //   subtitle: Text('every 24 hours'),
+          //   secondary: Icon(Icons.notifications),
+          //   // dense: true,
+          //   isThreeLine: true,
+          //   value: switch_val,
+          //   onChanged: (value){
+          //     setState(() {
+          //       switch_val = value;
+          //     });
+          //   },
+          //   // activeColor: Colors.red,
+          //   // activeTrackColor: Colors.black,
+          //   // inactiveTrackColor: Colors.blue,
+          //   // inactiveThumbColor: Colors.green,
+          // )
         ],
-      ),
+      )
     );
   }
 }
