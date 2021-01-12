@@ -305,3 +305,95 @@ ListView(
             // ),
         ],
       ),
+
+
+      ==================================
+
+      Column(
+        children: <Widget>[
+          // RaisedButton(
+          //   child: Text('click here'),
+          //   onPressed: (){
+          //     return showDialog<void>(
+          //       context: context,
+          //       builder: (BuildContext context){
+          //         return AlertDialog(
+          //           title: Text('Please Tell Us'),
+          //           actions: <Widget>[
+          //             FlatButton(
+          //               child: Text('exit'),
+          //               onPressed: (){
+          //                 Navigator.of(context).pop();
+          //               },
+          //             )
+          //           ],
+          //           content: Container(
+          //             width: 300,
+          //             height: 300,
+          //             child: Text('Are You Sure ? '),
+          //           ),
+          //         );
+          //       }
+          //     );
+          //   },
+          // )
+          // Text('${name}')
+          // GestureDetector(
+          //   child: Container(
+          //     width: 200,
+          //     height: 300,
+          //     color: Colors.red,
+          //     child: Text('welcome'),
+          //   ),
+          //   onTap: (){
+          //     print('clicked');
+          //   },
+          // )
+          // DropdownButton(
+          //   hint: Text('Select Your Country'),
+          //   value: init_btn,
+          //   onChanged: (String val){
+          //     setState(() {
+          //       init_btn = val;
+          //     });
+          //   },
+          //   items: <String>['egypt','jordan','kuwait'].map<DropdownMenuItem<String>>((String country){
+          //     return DropdownMenuItem<String>(
+          //       child: Text(country),
+          //       value: country,
+          //     );
+          //   }).toList(),
+          // )
+
+          // Switch(
+          //   value: switch_val,
+          //   onChanged: (value){
+          //     setState(() {
+          //       switch_val = value;
+          //     });
+          //   },
+          //   activeColor: Colors.red,
+          //   activeTrackColor: Colors.black,
+          //   inactiveTrackColor: Colors.blue,
+          //   inactiveThumbColor: Colors.green,
+
+          // ),
+          // SwitchListTile(
+          //   title: Text('Allow Notifications'),
+          //   subtitle: Text('every 24 hours'),
+          //   secondary: Icon(Icons.notifications),
+          //   // dense: true,
+          //   isThreeLine: true,
+          //   value: switch_val,
+          //   onChanged: (value){
+          //     setState(() {
+          //       switch_val = value;
+          //     });
+          //   },
+          //   // activeColor: Colors.red,
+          //   // activeTrackColor: Colors.black,
+          //   // inactiveTrackColor: Colors.blue,
+          //   // inactiveThumbColor: Colors.green,
+          // )
+        ],
+      )

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'another.dart';
+
 class HomeScreen extends StatefulWidget{
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -39,14 +41,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  var _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title : Text('Home'),
         // centerTitle: true,
         backgroundColor: Color.fromRGBO(10, 191, 222, .7),
-        leading: Icon(Icons.person),
+        leading: IconButton(
+          icon : Icon(Icons.person),
+          onPressed: (){
+            _scaffoldKey.currentState.openDrawer();
+          },
+        ),
         // elevation: 0,
         actions: <Widget>[
           IconButton(
@@ -63,94 +75,115 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          RaisedButton(
-            child: Text('click here'),
-            onPressed: (){
-              return showDialog<void>(
-                context: context,
-                builder: (BuildContext context){
-                  return AlertDialog(
-                    title: Text('Please Tell Us'),
-                    actions: <Widget>[
-                      FlatButton(
-                        child: Text('exit'),
-                        onPressed: (){
-                          Navigator.of(context).pop();
-                        },
-                      )
-                    ],
-                    content: Container(
-                      width: 300,
-                      height: 300,
-                      child: Text('Are You Sure ? '),
-                    ),
-                  );
-                }
-              );
-            },
-          )
-          // Text('${name}')
-          // GestureDetector(
-          //   child: Container(
-          //     width: 200,
-          //     height: 300,
-          //     color: Colors.red,
-          //     child: Text('welcome'),
-          //   ),
-          //   onTap: (){
-          //     print('clicked');
-          //   },
-          // )
-          // DropdownButton(
-          //   hint: Text('Select Your Country'),
-          //   value: init_btn,
-          //   onChanged: (String val){
-          //     setState(() {
-          //       init_btn = val;
-          //     });
-          //   },
-          //   items: <String>['egypt','jordan','kuwait'].map<DropdownMenuItem<String>>((String country){
-          //     return DropdownMenuItem<String>(
-          //       child: Text(country),
-          //       value: country,
-          //     );
-          //   }).toList(),
-          // )
+      body: Center(
+        child: TextFormField(),
+      ),
+      // body: GridView.count(
+      //   crossAxisCount: 2,
+      //   children: List.generate(10, (index){
+      //     return Center(
+      //       child: Text('item ${index}'),
+      //     );
+      //   }),
+      // ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child : Text('welcome'),
+              decoration: BoxDecoration(
+                color: Colors.blue
+              ),
+            ),
+            ListTile(
+              title: Text('item 1'),
+              onTap: (){
+                print('item 1');
+              },
+            ),
+            ListTile(
+              title: Text('item 1'),
+              onTap: (){
+                print('item 1');
+              },
+            ),
+            ListTile(
+              title: Text('item 1'),
+              onTap: (){
+                print('item 1');
+              },
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items : <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon : Icon(Icons.home),
+            title: Text('home')
+          ),
+          BottomNavigationBarItem(
+            icon : Icon(Icons.settings),
+            title: Text('settings')
+          ),
+          BottomNavigationBarItem(
+            icon : Icon(Icons.settings),
+            title: Text('settings')
+          ),
+          BottomNavigationBarItem(
+            icon : Icon(Icons.settings),
+            title: Text('settings')
+          ),
 
-          // Switch(
-          //   value: switch_val,
-          //   onChanged: (value){
-          //     setState(() {
-          //       switch_val = value;
-          //     });
-          //   },
-          //   activeColor: Colors.red,
-          //   activeTrackColor: Colors.black,
-          //   inactiveTrackColor: Colors.blue,
-          //   inactiveThumbColor: Colors.green,
-
-          // ),
-          // SwitchListTile(
-          //   title: Text('Allow Notifications'),
-          //   subtitle: Text('every 24 hours'),
-          //   secondary: Icon(Icons.notifications),
-          //   // dense: true,
-          //   isThreeLine: true,
-          //   value: switch_val,
-          //   onChanged: (value){
-          //     setState(() {
-          //       switch_val = value;
-          //     });
-          //   },
-          //   // activeColor: Colors.red,
-          //   // activeTrackColor: Colors.black,
-          //   // inactiveTrackColor: Colors.blue,
-          //   // inactiveThumbColor: Colors.green,
-          // )
         ],
-      )
+        currentIndex: _selectedIndex,
+        // backgroundColor: Colors.green,
+        selectedItemColor: Colors.red,
+        onTap: onItemPressed,
+      ),
     );
   }
+
+  onItemPressed(index)
+  {
+
+    setState(() {
+    
+      _selectedIndex = index;
+    
+    });
+
+    switch(index){
+      case 0 :
+        print('go to home');
+      break;
+
+      case 1 : 
+        
+        // Navigator.push(context, MaterialPageRoute(builder: (context)=>Another()));
+        
+        Navigator.pushNamed(context, '/another');
+        
+        // Navigator.of(context).pushNamedAndRemoveUntil('/another', (Route<dynamic> route) => false);
+        
+        // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>Another()), (Route<dynamic> route) => false);
+
+        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Another()));
+        
+        // Navigator.pushReplacementNamed(context, '/another');
+      break;
+
+      case 2 : 
+        print('go to settings 2');
+      break;
+
+      case 3 : 
+        print('go to settings 3');
+      break;
+    }
+  }
+
+
 }
